@@ -31,7 +31,7 @@ namespace TagnamesShrinker
             // then convert it all to a massive byte array to write to
             using (var fs = new FileStream("C:\\Users\\Joe bingle\\Downloads\\IRTV\\files\\tagnamesSLIM.txt", FileMode.Create, FileAccess.Write)){
                 foreach (var v in tagnames){
-                    fs.Write(BitConverter.GetBytes(v.Key));
+                    fs.Write(BitConverter.GetBytes(v.Key).Reverse().ToArray());
                     fs.Write(Encoding.UTF8.GetBytes(v.Value + '\0'));
                 }
             }
